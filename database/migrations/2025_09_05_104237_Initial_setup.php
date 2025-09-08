@@ -16,22 +16,26 @@ return new class extends Migration
             $table->text('name');
             $table->text('email');
             $table->text('password');
+            $table->timestamps();
         });
 
         Schema::create('peerage', function (Blueprint $table) {
             $table->id();
             $table->text('peerage');
+            $table->timestamps();
         });
 
         Schema::create('person', function (Blueprint $table) {
             $table->id();
             $table->text('name');
             $table->integer('CanonLoreId')->nullable();
+            $table->timestamps();
         });
 
         Schema::create('regaliatype', function (Blueprint $table) {
             $table->id();
             $table->text('type');
+            $table->timestamps();
         });
 
         Schema::create('regaliaitem', function (Blueprint $table) {
@@ -40,6 +44,7 @@ return new class extends Migration
             $table->text('Description')->nullable();
             $table->unsignedBigInteger('type');
             $table->foreign('type')->references('id')->on('regaliatype');
+            $table->timestamps();
         });
 
         Schema::create('history', function (Blueprint $table) {
@@ -49,6 +54,7 @@ return new class extends Migration
             $table->unsignedBigInteger('peerage');
             $table->date('date')->nullable();
             $table->text('notes')->nullable();
+            $table->timestamps();
 
             $table->foreign('item')->references('id')->on('regaliaitem');
             $table->foreign('person')->references('id')->on('person');

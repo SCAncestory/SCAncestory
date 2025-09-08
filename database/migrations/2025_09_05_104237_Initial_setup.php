@@ -11,43 +11,48 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('_user_', function (Blueprint $table) {
+        Schema::create('user', function (Blueprint $table) {
             $table->id();
             $table->text('name');
             $table->text('email');
             $table->text('password');
         });
 
-        Schema::create('_history_', function (Blueprint $table) {
-            $table->id();
-            $table->foreign('item')->references('id')->on('regaliaitem');
-            $table->foreign('person')->references('id')->on('person');
-            $table->foreign('peerage')->references('id')->on('peerage');
-            $table->date('date')->nullable();
-            $table->text('notes')->nullable();
-        });
-
-        Schema::peerage('_peerage_', function (Blueprint $table) {
+        Schema::create('peerage', function (Blueprint $table) {
             $table->id();
             $table->text('peerage');
         });
 
-        Schema::person('_person_', function (Blueprint $table) {
+        Schema::create('person', function (Blueprint $table) {
             $table->id();
             $table->text('name');
             $table->integer('CanonLoreId')->nullable();
         });
 
-        Schema::create('_regaliaitem_', function (Blueprint $table) {
+        Schema::create('regaliatype', function (Blueprint $table) {
+            $table->id();
+            $table->text('type');
+        });
+
+        Schema::create('regaliaitem', function (Blueprint $table) {
             $table->id();
             $table->text('Name')->nullable();
             $table->text('Description')->nullable();
+            $table->unsignedBigInteger('type');
             $table->foreign('type')->references('id')->on('regaliatype');
         });
 
-        Schema::create('_regaliatype_', function (Blueprint $table) {
+        Schema::create('history', function (Blueprint $table) {
             $table->id();
-            $table->text('type');
+            $table->unsignedBigInteger('item');
+            $table->unsignedBigInteger('person');
+            $table->unsignedBigInteger('peerage');
+            $table->date('date')->nullable();
+            $table->text('notes')->nullable();
+
+            $table->foreign('item')->references('id')->on('regaliaitem');
+            $table->foreign('person')->references('id')->on('person');
+            $table->foreign('peerage')->references('id')->on('peerage');
         });
     }
 
@@ -56,11 +61,11 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('_user_');
-        Schema::dropIfExists('_history_');
-        Schema::dropIfExists('_peerage_');
-        Schema::dropIfExists('_person_');
-        Schema::dropIfExists('_regaliaitem_');
-        Schema::dropIfExists('_regaliatype_');
+        Schema::dropIfExists('user');
+        Schema::dropIfExists('history');
+        Schema::dropIfExists('peerage');
+        Schema::dropIfExists('person');
+        Schema::dropIfExists('regaliaitem');
+        Schema::dropIfExists('regaliatype');
     }
 };

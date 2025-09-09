@@ -18,8 +18,10 @@ return [
     // and choosing that view_namespace instead of the default one. Backpack will load a file from there
     // if it exists, otherwise it will load it from the fallback namespace.
 
-    'view_namespace' => 'backpack.theme-tabler::',
-    'view_namespace_fallback' => 'backpack.theme-tabler::',
+    // 'view_namespace' => 'backpack.theme-coreuiv4::',
+    // 'view_namespace_fallback' => 'backpack.theme-coreuiv4::',
+    'view_namespace' => 'backpack.theme-coreuiv4::',
+    'view_namespace_fallback' => 'backpack.theme-coreuiv4::',
 
     /*
     |--------------------------------------------------------------------------
@@ -46,7 +48,7 @@ return [
     // ----
 
     // Project name - shown in the window title
-    'project_name' => 'Backpack Admin Panel',
+    'project_name' => 'SCAncestory Admin Panel',
 
     // Content of the HTML meta robots tag to prevent indexing and link following
     'meta_robots_content' => 'noindex, nofollow',
@@ -63,7 +65,7 @@ return [
     'home_link' => '',
 
     // Menu logo. You can replace this with an <img> tag if you have a logo.
-    'project_logo' => '<b>Back</b>pack',
+    'project_logo' => '<b>SCA</b>ncestory',
 
     // Show / hide breadcrumbs on admin panel pages.
     'breadcrumbs' => true,

@@ -5,5 +5,5 @@
 <x-backpack::menu-item title="Histories" icon="las la-history" :link="backpack_url('history')" />
 <x-backpack::menu-item title="Peerages" icon="las la-award" :link="backpack_url('peerage')" />
 <x-backpack::menu-item title="People" icon="las la-user-friends" :link="backpack_url('person')" />
-<x-backpack::menu-item title="Regaliaitems" icon="las la-trophy" :link="backpack_url('regaliaitem')" />
-<x-backpack::menu-item title="Regaliatypes" icon="las la-tags" :link="backpack_url('regaliatype')" />
+<x-backpack::menu-item title="Regalia Items" icon="las la-trophy" :link="backpack_url('regaliaitem')" />
+<x-backpack::menu-item title="Regalia Types" icon="las la-tags" :link="backpack_url('regaliatype')" />

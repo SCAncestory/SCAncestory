@@ -21,7 +21,7 @@ class Person extends Model
      * @var list<string>
      */
     protected $fillable = [
-        'Name',
+        'name',
         'CanonLoreId',
     ];
 }

@@ -27,7 +27,7 @@ class PeerageCrudController extends CrudController
     {
         CRUD::setModel(\App\Models\Peerage::class);
         CRUD::setRoute(config('backpack.base.route_prefix') . '/peerage');
-        CRUD::setEntityNameStrings('peerage', 'peerages');
+        CRUD::setEntityNameStrings('Peerage', 'Peerages');
     }
 
     /**

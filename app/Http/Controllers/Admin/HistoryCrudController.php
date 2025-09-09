@@ -27,7 +27,7 @@ class HistoryCrudController extends CrudController
     {
         CRUD::setModel(\App\Models\History::class);
         CRUD::setRoute(config('backpack.base.route_prefix') . '/history');
-        CRUD::setEntityNameStrings('history', 'histories');
+        CRUD::setEntityNameStrings('History', 'Histories');
     }
 
     /**

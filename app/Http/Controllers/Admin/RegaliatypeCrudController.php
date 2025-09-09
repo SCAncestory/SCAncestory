@@ -27,7 +27,7 @@ class RegaliatypeCrudController extends CrudController
     {
         CRUD::setModel(\App\Models\Regaliatype::class);
         CRUD::setRoute(config('backpack.base.route_prefix') . '/regaliatype');
-        CRUD::setEntityNameStrings('regaliatype', 'regaliatypes');
+        CRUD::setEntityNameStrings('Regalia Type', 'Regalia Types');
     }
 
     /**

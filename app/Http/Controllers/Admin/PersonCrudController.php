@@ -27,7 +27,7 @@ class PersonCrudController extends CrudController
     {
         CRUD::setModel(\App\Models\Person::class);
         CRUD::setRoute(config('backpack.base.route_prefix') . '/person');
-        CRUD::setEntityNameStrings('person', 'people');
+        CRUD::setEntityNameStrings('Person', 'People');
     }
 
     /**

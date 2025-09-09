@@ -27,7 +27,7 @@ class RegaliaitemCrudController extends CrudController
     {
         CRUD::setModel(\App\Models\Regaliaitem::class);
         CRUD::setRoute(config('backpack.base.route_prefix') . '/regaliaitem');
-        CRUD::setEntityNameStrings('regaliaitem', 'regaliaitems');
+        CRUD::setEntityNameStrings('Regalia item', 'Regalia Items');
     }
 
     /**

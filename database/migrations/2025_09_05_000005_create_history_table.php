@@ -13,13 +13,12 @@ return new class extends Migration
     {
 
         Schema::create('history', function (Blueprint $table) {
-            $table->id();
+            $table->id()->autoIncrement();
             $table->unsignedBigInteger('item');
             $table->unsignedBigInteger('person');
             $table->unsignedBigInteger('peerage');
             $table->date('date')->nullable();
             $table->text('notes')->nullable();
-            $table->timestamps();
 
             $table->foreign('item')->references('id')->on('regaliaitem');
             $table->foreign('person')->references('id')->on('person');

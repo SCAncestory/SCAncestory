@@ -14,4 +14,6 @@ class History extends Model
      * @var string
      */
     protected $table = 'history';
+    public $timestamps = false;
+    protected $guarded = ['id'];
 }

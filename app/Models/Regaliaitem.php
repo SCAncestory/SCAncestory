@@ -5,6 +5,7 @@ namespace App\Models;
 use Backpack\CRUD\app\Models\Traits\CrudTrait;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Regaliaitem extends Model
 {
@@ -19,20 +20,12 @@ class Regaliaitem extends Model
 
     protected $table = 'regaliaitem';
     // protected $primaryKey = 'id';
-    // public $timestamps = false;
+    public $timestamps = false;
     protected $guarded = ['id'];
-
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var list<string>
-     */
     protected $fillable = [
-        'type',
         'name',
+        'type_id',
     ];
-
-    // protected $hidden = [];
 
     /*
     |--------------------------------------------------------------------------
@@ -40,11 +33,16 @@ class Regaliaitem extends Model
     |--------------------------------------------------------------------------
     */
 
+
     /*
     |--------------------------------------------------------------------------
     | RELATIONS
     |--------------------------------------------------------------------------
     */
+    public function type(): BelongsTo
+    {
+        return $this->belongsTo(Regaliatype::class);
+    }
 
     /*
     |--------------------------------------------------------------------------

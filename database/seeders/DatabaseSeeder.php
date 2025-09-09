@@ -4,7 +4,7 @@ namespace Database\Seeders;
 
 use App\Models\User;
 use App\Models\Peerage;
-use App\Models\RegaliaType;
+use App\Models\Regaliatype;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -40,22 +40,22 @@ class DatabaseSeeder extends Seeder
             'peerage' => 'Mark',
         ]);
 
-        RegaliaType::factory()->create([
+        Regaliatype::factory()->create([
             'type' => 'Belt',
         ]);
-        RegaliaType::factory()->create([
-            'type' => 'Medalian',
+        Regaliatype::factory()->create([
+            'type' => 'Medalion',
         ]);
-        RegaliaType::factory()->create([
+        Regaliatype::factory()->create([
             'type' => 'Chain',
         ]);
-        RegaliaType::factory()->create([
+        Regaliatype::factory()->create([
             'type' => 'Spurs',
         ]);
-        RegaliaType::factory()->create([
+        Regaliatype::factory()->create([
             'type' => 'Collar',
         ]);
-        RegaliaType::factory()->create([
+        Regaliatype::factory()->create([
             'type' => 'Bracers',
         ]);
     }

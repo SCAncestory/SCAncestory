@@ -12,11 +12,12 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('regaliaitem', function (Blueprint $table) {
-            $table->id();
+            $table->id()->autoIncrement();
             $table->text('name');
-            $table->unsignedBigInteger('type');
-            $table->foreign('type')->references('id')->on('regaliatype');
-            $table->timestamps();
+            $table->foreignId('type_id')->constrained(
+                table: 'regaliatype',
+                indexName: 'id'
+            );
         });
     }
 

@@ -12,10 +12,9 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('person', function (Blueprint $table) {
-            $table->id();
+            $table->id()->autoIncrement();
             $table->text('name');
             $table->integer('CanonLoreId')->nullable();
-            $table->timestamps();
         });
     }
 

@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Requests\RegaliaitemRequest;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
 use Backpack\CRUD\app\Library\CrudPanel\CrudPanelFacade as CRUD;
 
@@ -39,13 +38,14 @@ class RegaliaitemCrudController extends CrudController
      */
     protected function setupListOperation()
     {
-        CRUD::setFromDb(); // set columns from db columns.
+        // CRUD::setFromDb(); // set columns from db columns.
 
         /**
          * Columns can be defined using the fluent syntax:
          * - CRUD::column('price')->type('number');
          */
-        // CRUD::column('name');
+        CRUD::column('name');
+        CRUD::column('type');
     }
 
     /**
@@ -56,21 +56,8 @@ class RegaliaitemCrudController extends CrudController
      */
     protected function setupCreateOperation()
     {
-        CRUD::setValidation(RegaliaitemRequest::class);
-        // CRUD::setFromDb(); // set fields from db columns.
-
-        CRUD::field('name');
-        CRUD::addField([
-            'label'     => "Type",
-            'type'      => 'select',
-            'name'      => 'dojo_id', // Foreign key column
-            'attribute' => 'type',    // Attribute to display in the select dropdown
-            'model'     => "App\Models\Regaliatype", // Related model
-        ]);
-        /**
-         * Fields can be defined using the fluent syntax:
-         * - CRUD::field('price')->type('number');
-         */
+        CRUD::field('name')->validationRules('required');
+        CRUD::field('type')->validationRules('required');
     }
 
     /**
@@ -81,6 +68,7 @@ class RegaliaitemCrudController extends CrudController
      */
     protected function setupUpdateOperation()
     {
-        $this->setupCreateOperation();
+        CRUD::field('name')->validationRules('required');
+        CRUD::field('type')->validationRules('required');
     }
 }

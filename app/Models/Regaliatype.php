@@ -19,12 +19,12 @@ class Regaliatype extends Model
 
     protected $table = 'regaliatype';
     // protected $primaryKey = 'id';
-    // public $timestamps = false;
+    public $timestamps = false;
     protected $guarded = ['id'];
     protected $fillable = [
         'type',
     ];
-    // protected $hidden = [];
+    protected $identifiableAttribute = 'type';
 
     /*
     |--------------------------------------------------------------------------
@@ -37,6 +37,10 @@ class Regaliatype extends Model
     | RELATIONS
     |--------------------------------------------------------------------------
     */
+    public function items()
+    {
+        return $this->hasMany(Regaliatype::class)->chaperone();
+    }
 
     /*
     |--------------------------------------------------------------------------

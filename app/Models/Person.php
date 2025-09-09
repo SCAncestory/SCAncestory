@@ -14,6 +14,8 @@ class Person extends Model
      * @var string
      */
     protected $table = 'person';
+    public $timestamps = false;
+    protected $guarded = ['id'];
 
     /**
      * The attributes that are mass assignable.

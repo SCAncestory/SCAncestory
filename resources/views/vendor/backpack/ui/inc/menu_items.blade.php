@@ -5,3 +5,5 @@
 <x-backpack::menu-item title="Histories" icon="la la-question" :link="backpack_url('history')" />
 <x-backpack::menu-item title="Peerages" icon="la la-question" :link="backpack_url('peerage')" />
 <x-backpack::menu-item title="People" icon="la la-question" :link="backpack_url('person')" />
+<x-backpack::menu-item title="Regaliaitems" icon="la la-question" :link="backpack_url('regaliaitem')" />
+<x-backpack::menu-item title="Regaliatypes" icon="la la-question" :link="backpack_url('regaliatype')" />

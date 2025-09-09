@@ -2,20 +2,18 @@
 
 namespace App\Models;
 
+use Backpack\CRUD\app\Models\Traits\CrudTrait;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Peerage extends Model
 {
-    /** @use HasFactory<\Database\Factories\UserFactory> */
+    use CrudTrait;
     use HasFactory;
 
-    /**
-     * The table associated with the model.
-     *
-     * @var string
-     */
     protected $table = 'peerage';
+    public $timestamps = false;
+    protected $guarded = ['id'];
 
     /**
      * The attributes that are mass assignable.

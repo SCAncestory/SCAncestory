@@ -2,16 +2,20 @@
 
 namespace App\Models;
 
+use Backpack\CRUD\app\Models\Traits\CrudTrait;
 use Illuminate\Database\Eloquent\Model;
 
 class Person extends Model
 {
+    use CrudTrait;
     /**
      * The table associated with the model.
      *
      * @var string
      */
     protected $table = 'person';
+    public $timestamps = false;
+    protected $guarded = ['id'];
 
     /**
      * The attributes that are mass assignable.
@@ -19,7 +23,7 @@ class Person extends Model
      * @var list<string>
      */
     protected $fillable = [
-        'Name',
+        'name',
         'CanonLoreId',
     ];
 }

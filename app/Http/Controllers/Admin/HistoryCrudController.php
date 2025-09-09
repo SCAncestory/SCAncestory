@@ -38,12 +38,17 @@ class HistoryCrudController extends CrudController
      */
     protected function setupListOperation()
     {
-        CRUD::setFromDb(); // set columns from db columns.
 
         /**
          * Columns can be defined using the fluent syntax:
          * - CRUD::column('price')->type('number');
          */
+
+        CRUD::column('person');
+        CRUD::column('peerage');
+        CRUD::column('item');
+        CRUD::column('date');
+        CRUD::column('notes');
     }
 
     /**
@@ -54,12 +59,16 @@ class HistoryCrudController extends CrudController
      */
     protected function setupCreateOperation()
     {
-        CRUD::setFromDb(); // set fields from db columns.
-
         /**
          * Fields can be defined using the fluent syntax:
          * - CRUD::field('price')->type('number');
          */
+
+        CRUD::field('person')->validationRules('required');
+        CRUD::field('peerage')->validationRules('required');
+        CRUD::field('item')->validationRules('required');
+        CRUD::field('date');
+        CRUD::field('notes');
     }
 
     /**

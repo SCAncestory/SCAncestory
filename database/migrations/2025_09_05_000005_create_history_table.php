@@ -14,15 +14,21 @@ return new class extends Migration
 
         Schema::create('history', function (Blueprint $table) {
             $table->id()->autoIncrement();
-            $table->unsignedBigInteger('item');
-            $table->unsignedBigInteger('person');
-            $table->unsignedBigInteger('peerage');
+            $table->foreignId('item_id')->constrained(
+                table: 'regaliaitem',
+                indexName: 'id'
+            );
+            $table->foreignId('person_id')->constrained(
+                table: 'person',
+                indexName: 'id'
+            );
+            $table->foreignId('peerage_id')->constrained(
+                table: 'peerage',
+                indexName: 'id'
+            );
+
             $table->date('date')->nullable();
             $table->text('notes')->nullable();
-
-            $table->foreign('item')->references('id')->on('regaliaitem');
-            $table->foreign('person')->references('id')->on('person');
-            $table->foreign('peerage')->references('id')->on('peerage');
         });
     }
 

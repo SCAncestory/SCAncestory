@@ -54,7 +54,10 @@ class PeerageCrudController extends CrudController
      */
     protected function setupCreateOperation()
     {
-        CRUD::setFromDb(); // set fields from db columns.
+        CRUD::field([
+            'name' => 'peerage',
+            'type' => 'text',
+        ])->validationRules('required');
 
         /**
          * Fields can be defined using the fluent syntax:

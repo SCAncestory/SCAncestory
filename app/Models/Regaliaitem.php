@@ -27,6 +27,7 @@ class Regaliaitem extends Model implements Auditable
     protected $fillable = [
         'name',
         'type_id',
+        'notes',
     ];
 
     /*

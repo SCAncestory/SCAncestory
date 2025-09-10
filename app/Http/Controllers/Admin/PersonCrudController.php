@@ -54,7 +54,15 @@ class PersonCrudController extends CrudController
      */
     protected function setupCreateOperation()
     {
-        CRUD::setFromDb(); // set fields from db columns.
+        CRUD::field([
+            'name' => 'peerage',
+            'type' => 'text',
+        ])->validationRules('required');
+        CRUD::field([
+            'name' => 'CanonLoreId',
+            'label' => 'Canon Lore Id',
+            'type' => 'number',
+        ]);
 
         /**
          * Fields can be defined using the fluent syntax:

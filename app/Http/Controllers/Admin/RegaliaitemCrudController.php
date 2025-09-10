@@ -56,8 +56,12 @@ class RegaliaitemCrudController extends CrudController
      */
     protected function setupCreateOperation()
     {
-        CRUD::field('name')->validationRules('required');
+        CRUD::field([
+            'name' => 'name',
+            'type' => 'text',
+        ])->validationRules('required');
         CRUD::field('type')->validationRules('required');
+        CRUD::field('notes');
     }
 
     /**
@@ -68,7 +72,6 @@ class RegaliaitemCrudController extends CrudController
      */
     protected function setupUpdateOperation()
     {
-        CRUD::field('name')->validationRules('required');
-        CRUD::field('type')->validationRules('required');
+        $this->setupCreateOperation();
     }
 }

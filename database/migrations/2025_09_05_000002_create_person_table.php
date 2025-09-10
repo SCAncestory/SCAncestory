@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('person', function (Blueprint $table) {
             $table->id()->autoIncrement();
             $table->text('name');
+            $table->text('notes')->nullable();
             $table->integer('CanonLoreId')->nullable();
         });
     }

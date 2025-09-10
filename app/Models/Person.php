@@ -18,5 +18,6 @@ class Person extends Model implements Auditable
     protected $fillable = [
         'name',
         'CanonLoreId',
+        'notes',
     ];
 }

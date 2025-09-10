@@ -54,7 +54,10 @@ class RegaliatypeCrudController extends CrudController
      */
     protected function setupCreateOperation()
     {
-        CRUD::setFromDb(); // set fields from db columns.
+        CRUD::field([
+            'name' => 'type',
+            'type' => 'text',
+        ])->validationRules('required');
 
         /**
          * Fields can be defined using the fluent syntax:

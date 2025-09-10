@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('regaliaitem', function (Blueprint $table) {
             $table->id()->autoIncrement();
             $table->text('name');
+            $table->text('notes')->nullable();
             $table->foreignId('type_id')->constrained(
                 table: 'regaliatype',
                 indexName: 'id'

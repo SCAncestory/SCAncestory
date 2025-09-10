@@ -6,11 +6,13 @@ use Backpack\CRUD\app\Models\Traits\CrudTrait;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use OwenIt\Auditing\Contracts\Auditable;
 
-class Regaliaitem extends Model
+class Regaliaitem extends Model implements Auditable
 {
     use CrudTrait;
     use HasFactory;
+    use \OwenIt\Auditing\Auditable;
 
     /*
     |--------------------------------------------------------------------------

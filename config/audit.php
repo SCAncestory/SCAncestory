@@ -29,6 +29,7 @@ return [
         'guards' => [
             'web',
             'api',
+            'backpack',
         ],
         'resolver' => OwenIt\Auditing\Resolvers\UserResolver::class,
     ],

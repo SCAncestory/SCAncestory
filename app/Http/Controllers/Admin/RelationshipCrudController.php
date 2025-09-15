@@ -6,11 +6,11 @@ use Backpack\CRUD\app\Http\Controllers\CrudController;
 use Backpack\CRUD\app\Library\CrudPanel\CrudPanelFacade as CRUD;
 
 /**
- * Class PersonCrudController
+ * Class RelationshipCrudController
  * @package App\Http\Controllers\Admin
  * @property-read \Backpack\CRUD\app\Library\CrudPanel\CrudPanel $crud
  */
-class PersonCrudController extends CrudController
+class RelationshipCrudController extends CrudController
 {
     use \Backpack\CRUD\app\Http\Controllers\Operations\ListOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\CreateOperation;
@@ -25,9 +25,9 @@ class PersonCrudController extends CrudController
      */
     public function setup()
     {
-        CRUD::setModel(\App\Models\Person::class);
-        CRUD::setRoute(config('backpack.base.route_prefix') . '/person');
-        CRUD::setEntityNameStrings('Person', 'People');
+        CRUD::setModel(\App\Models\Relationship::class);
+        CRUD::setRoute(config('backpack.base.route_prefix') . '/relationship');
+        CRUD::setEntityNameStrings('relationship', 'relationships');
     }
 
     /**
@@ -44,6 +44,11 @@ class PersonCrudController extends CrudController
          * Columns can be defined using the fluent syntax:
          * - CRUD::column('price')->type('number');
          */
+
+        CRUD::column('peer');
+        CRUD::column('student');
+        CRUD::column('peerage');
+        CRUD::column('status');
     }
 
     /**
@@ -54,21 +59,20 @@ class PersonCrudController extends CrudController
      */
     protected function setupCreateOperation()
     {
-        CRUD::field([
-            'name' => 'name',
-            'type' => 'text',
-        ])->validationRules('required');
-        CRUD::field([
-            'name' => 'CanonLoreId',
-            'label' => 'Canon Lore Id',
-            'type' => 'number',
-        ]);
-        CRUD::field('notes');
+        // CRUD::setFromDb(); // set fields from db columns.
 
         /**
          * Fields can be defined using the fluent syntax:
          * - CRUD::field('price')->type('number');
          */
+
+        CRUD::field('peer')->validationRules('required');
+        CRUD::field('student')->validationRules('required');
+        CRUD::field('peerage')->validationRules('required');
+        CRUD::field('notes');
+        CRUD::field('start_date');
+        CRUD::field('end_date');
+        CRUD::field('status');
     }
 
     /**
